@@ -60,6 +60,16 @@ test('card', t => {
   });
 });
 
+test('linkAccount', t => {
+  t.same(Response.linkAccount().build(), {
+    version: '1.0',
+    response: {
+      shouldEndSession: true,
+      card: { type: 'LinkAccount' }
+    }
+  });
+});
+
 test('reprompt', t => {
   t.same(Response.reprompt('Can you repeat that?').build(), {
     version: '1.0',

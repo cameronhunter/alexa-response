@@ -47,6 +47,16 @@ Response.say("I've put the answer to your question on your phone")
         .build();
 ```
 
+### linkAccount()
+
+Opens a card in the Alexa app for the user to authorize themself with your website.
+
+```javascript
+Response.linkAccount()
+        .say('Go to your Alexa app to link your account')
+        .build();
+```
+
 ### attributes(data: Object)
 
 You can maintain data across sessions using attribute data.

@@ -3,12 +3,14 @@ import { renderToString } from 'alexa-ssml';
 export const SSML = 'SSML';
 export const PlainText = 'PlainText';
 export const Simple = 'Simple';
+export const LinkAccount = 'LinkAccount';
 
 export default class Response {
   static ask = (...args) => new Response().ask(...args);
   static say = (...args) => new Response().say(...args);
   static card = (...args) => new Response().card(...args);
   static reprompt = (...args) => new Response().reprompt(...args);
+  static linkAccount = (...args) => new Response().linkAccount(...args);
   static shouldEndSession = (...args) => new Response().shouldEndSession(...args);
 
   constructor(state = {}) {
@@ -46,6 +48,16 @@ export default class Response {
       response: {
         ...this.state.response,
         card: { type, title, content }
+      }
+    });
+  }
+
+  linkAccount() {
+    return new Response({
+      ...this.state,
+      response: {
+        ...this.state.response,
+        card: { type: LinkAccount }
       }
     });
   }
