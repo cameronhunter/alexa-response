@@ -15,27 +15,27 @@ export default class Response {
     this.state = state;
   }
 
-  ask(text, type) {
-    return this.say(text, type).shouldEndSession(false);
+  ask(type, text) {
+    return this.say(type, text).shouldEndSession(false);
   }
 
-  say(text, type) {
+  say(type, text) {
     return new Response({
       ...this.state,
       response: {
         ...this.state.response,
         shouldEndSession: true,
-        ...outputSpeech(text, type)
+        ...outputSpeech(type, text)
       }
     });
   }
 
-  reprompt(text, type) {
+  reprompt(type, text) {
     return new Response({
       ...this.state,
       response: {
         ...this.state.response,
-        reprompt: { ...outputSpeech(text, type) }
+        reprompt: { ...outputSpeech(type, text) }
       }
     });
   }
@@ -83,7 +83,10 @@ export default class Response {
   }
 }
 
-const outputSpeech = (text, type = PlainText) => {
+const outputSpeech = (_type, _text) => {
+  const type = _text === undefined ? PlainText : _type;
+  const text = _text === undefined ? _type : _text;
+
   if (type === SSML || typeof text === 'object') {
     return { outputSpeech: { type: SSML, ssml: (typeof text === 'object') ? renderToString(text) : text } };
   } else {
