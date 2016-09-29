@@ -48,6 +48,25 @@ Response.say("I've put the answer to your question on your phone")
         .build();
 ```
 
+### audio(options: Object)
+
+Audio directives allow you to send streaming audio to Alexa. Here are some examples of audio directives
+you can send.
+
+```javascript
+Response.say('Playing your song')
+        .audio({
+          type: DirectiveType.Play,
+          url: 'https://my-audio-hosting-site.com/audio/sample-song.mp3',
+          token: 'something',
+          offsetInMilliseconds: 42
+        })
+        .build();
+```
+
+In the example above, we are chaining together the `say` and `audio` directives, and Alexa will speak the requested
+text before starting audio playback. See [here](https://developer.amazon.com/public/community/post/Tx1DSINBM8LUNHY/New-Alexa-Skills-Kit-ASK-Feature-Audio-Streaming-in-Alexa-Skills) for more information. 
+
 ### attributes(data: Object)
 
 You can maintain data across sessions using attribute data.

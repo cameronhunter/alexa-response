@@ -1,5 +1,5 @@
 import test from 'ava';
-import { card } from '../src';
+import { card, CardType } from '../src';
 import { ssml } from 'alexa-ssml';
 
 test('Simple', t => {
@@ -13,7 +13,7 @@ test('Simple', t => {
 });
 
 test('LinkAccount', t => {
-  t.deepEqual(card({ type: 'LinkAccount' }).build(), {
+  t.deepEqual(card({ type: CardType.LinkAccount }).build(), {
     version: '1.0',
     response: {
       shouldEndSession: true,
