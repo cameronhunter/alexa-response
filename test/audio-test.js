@@ -10,7 +10,7 @@ test('Play', t => {
       directives: [
         {
           type: 'AudioPlayer.Play',
-          playBehavior: 'ENQUEUE',
+          playBehavior: 'REPLACE_ALL',
           audioItem: {
             stream: {
               url: 'https://my-audio-hosting-site.com/audio/sample-song.mp3',
@@ -42,7 +42,7 @@ test('Say and Play', t => {
       directives: [
         {
           type: 'AudioPlayer.Play',
-          playBehavior: 'ENQUEUE',
+          playBehavior: 'REPLACE_ALL',
           audioItem: {
             stream: {
               url: 'https://my-audio-hosting-site.com/audio/sample-song.mp3',

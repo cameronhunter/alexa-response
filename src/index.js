@@ -103,7 +103,7 @@ export default class Response {
 
   audio({
       type = DirectiveType.Stop,
-      playBehavior = AudioPlayerPlayBehaviorType.Enqueue,
+      playBehavior = AudioPlayerPlayBehaviorType.ReplaceAll,
       clearBehavior = AudioPlayerClearQueueBehaviorType.ClearAll,
       ...rest }) {
 
