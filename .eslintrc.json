@@ -1,8 +1,19 @@
 {
   "parser": "babel-eslint",
   "rules": {
-    "semi": [2, "always"],
-    "quotes": [2, "single"],
-    "no-unused-vars": [2, { "varsIgnorePattern": "^ssml$" }]
+    "semi": [
+      2,
+      "always"
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
+    "no-unused-vars": [
+      2,
+      {
+        "varsIgnorePattern": "^ssml$"
+      }
+    ]
   }
 }
